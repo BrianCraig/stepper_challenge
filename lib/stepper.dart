@@ -12,9 +12,9 @@ class MyStepperController extends ChangeNotifier {
   final int steps;
   int step = 0;
 
-  goTo(int newStep) {
+  void goTo(int newStep) {
     assert(newStep < steps && newStep >= 0);
-    assert(step != newStep, 'Shouldn\'t go to the same step');
+    if (step == newStep) return;
     step = newStep;
     notifyListeners();
   }
